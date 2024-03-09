@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/posts', [PostController::class, 'index']);
+Route::put('/upvote/{post}', [PostController::class, 'increase']);

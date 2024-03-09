@@ -14,4 +14,11 @@ class postController extends Controller
         $posts = Post::all();
         return PostResource::collection($posts);
     }
+    public function increase(Post $post, Request $request){
+        $validatedData = $request->validate([
+            'upvote'=>'integer',
+        ]);
+        $post->update($validatedData);
+        return new PostResource($post);
+    }
 }
